@@ -38,6 +38,9 @@ export const Card = z
     action: z.string().min(10).max(240), // starts with "Do this:"
     snippets: z.array(Snippet).max(3),
     verified: z.boolean(),
+    // Set by scripts/sync-from-upstream.mjs when a cited upstream range changed since commitSha.
+    // A human re-checks the lines, updates commitSha and snippets, then removes the flag.
+    needsReview: z.boolean().optional(),
     todos: z.array(z.string()).optional(),
     order: z.number().int().positive(), // explicit sort
   })

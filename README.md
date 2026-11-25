@@ -48,10 +48,37 @@ Decisions made without asking (change them if you want):
 - License for this site's own code is MIT. Quoted excerpts from `xai-org/x-algorithm` are Apache 2.0, attributed in `NOTICE`.
 - Analytics are not added yet (the plan lists Vercel Analytics as an option).
 
+## Keep the cards in sync with upstream
+
+A daily GitHub Action (`.github/workflows/sync-upstream.yml`) checks `xai-org/x-algorithm` and opens a pull request when a card's cited upstream lines have changed. The check is `scripts/sync-from-upstream.mjs`. It uses only Node built-ins, so it runs on Node 20 with no `npm install`.
+
+How it works:
+
+1. It reads the default branch's latest commit through the GitHub API.
+2. For each distinct `commitSha` pin on the cards, it compares that pin with the latest commit (compare API).
+3. A card gets `"needsReview": true` only when the content of a cited range changed: a line inside `startLine`..`endLine` was changed or removed, lines were inserted inside the range, or the file was renamed, removed, or added. Line numbers that only moved (same content, shifted by an edit above) are listed in the report but do not flag the card.
+4. It writes `content/upstream.json` (`latestSha`, `lastCheckedAt`) and `content/sync-report.json` (every changed file, which cards are flagged, and shifted line ranges).
+5. If a card was newly flagged, or a tracked upstream file changed, the workflow opens a pull request on branch `automated/sync-upstream`. It does not merge. A run where nothing new happened does not open a PR, so a daily run never reopens the same review.
+
+What the sync never does: rewrite card prose, claims, or snippet text, or change `commitSha`. Those stay human-reviewed. To clear a flag, open the cited lines at the new commit, update the card's `snippets` and `commitSha` if they still match, and remove `needsReview`. Blob links are pinned to `commitSha`, so existing links keep working until you bump the pin.
+
+Running it locally:
+
+```bash
+npm run sync:dry-run   # fetch, print the result, write nothing
+npm run sync:upstream  # fetch and write content/upstream.json and content/sync-report.json
+```
+
+Options: `--offline` makes no network calls. `--fixture <file.json>` replays API responses from a file, for tests. `--pr-body <file>` writes the PR body. `--strict` exits 1 when the run is skipped. A token is not needed. Set `GITHUB_TOKEN` if you hit the unauthenticated rate limit (60 requests an hour). When GitHub is unreachable or rate-limits the run, the script logs `skipped`, changes nothing, and exits 0 (1 with `--strict`).
+
+Repository setting: the workflow uses the built-in `GITHUB_TOKEN` and declares its own permissions (`contents: write`, `pull-requests: write`). One repo setting must be on: Settings, Actions, General, "Allow GitHub Actions to create and approve pull requests". The workflow needs no other secrets. The first run only happens on the daily schedule or from the Actions tab via "Run workflow".
+
+`npm run build` also runs `scripts/verify-build.mjs` after the build. It fails if the prerendered feed does not contain every expected slide (cover, every verified card in `order`, about), so a missing or reordered card breaks the build instead of shipping.
+
 ## Not built yet (from the plan)
 
-- v2 automation: `content/state.json`, a draft script, a GitHub Action, and the Grok Bot routine. These need tokens and a bot setup, and no card drafts are generated automatically yet.
-- The snippet-diff check (`scripts/verify-snippets.ts`) that compares excerpts with the pinned commit.
+- The Grok Bot routine and card drafting (`scripts/draft-card.ts`). Cards are still written and checked by hand. The sync only flags cards.
+- The snippet-diff check (`scripts/verify-snippets.ts`) that compares excerpts with the pinned commit's text.
 - Custom domain.
 
 ## Credit

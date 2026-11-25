@@ -1,0 +1,469 @@
+{
+  "checkedAt": "2026-11-25T14:49:01.590Z",
+  "status": "tracked-changes",
+  "changed": true,
+  "upstream": {
+    "repo": "xai-org/x-algorithm",
+    "defaultBranch": "main",
+    "latestSha": "52d45989090e63992ba04e4f6cfccd73bf8cc05c",
+    "latestCommitDate": "2026-11-25T06:24:59Z"
+  },
+  "pins": [
+    {
+      "commitSha": "e005f95",
+      "resolvedSha": "e005f9528e504596f2c024a274d5fb533ce6488a",
+      "changedFiles": 50,
+      "truncated": false
+    }
+  ],
+  "trackedChanges": [
+    {
+      "filename": "home-mixer/params/param.rs",
+      "status": "modified",
+      "additions": 19,
+      "deletions": 1,
+      "tracked": true
+    },
+    {
+      "filename": "phoenix/crates/common/xai-recsys/src/reply.rs",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "tracked": true
+    }
+  ],
+  "changedFiles": [
+    {
+      "filename": "grox/config/config.py",
+      "status": "modified",
+      "additions": 11,
+      "deletions": 0,
+      "tracked": false
+    },
+    {
+      "filename": "grox/core/schedules/init.py",
+      "status": "modified",
+      "additions": 6,
+      "deletions": 0,
+      "tracked": false
+    },
+    {
+      "filename": "home-mixer/candidate_pipeline/performance_params.json",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 0,
+      "tracked": false
+    },
+    {
+      "filename": "home-mixer/for_you_server.rs",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 1,
+      "tracked": false
+    },
+    {
+      "filename": "home-mixer/frames/catalog.rs",
+      "status": "modified",
+      "additions": 70,
+      "deletions": 4,
+      "tracked": false
+    },
+    {
+      "filename": "home-mixer/frames/mod.rs",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 3,
+      "tracked": false
+    },
+    {
+      "filename": "home-mixer/models/candidate.rs",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 0,
+      "tracked": false
+    },
+    {
+      "filename": "home-mixer/models/query.rs",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 0,
+      "tracked": false
+    },
+    {
+      "filename": "home-mixer/params/param.rs",
+      "status": "modified",
+      "additions": 19,
+      "deletions": 1,
+      "tracked": true
+    },
+    {
+      "filename": "home-mixer/query_hydrators/cached_posts_query_hydrator.rs",
+      "status": "modified",
+      "additions": 5,
+      "deletions": 1,
+      "tracked": false
+    },
+    {
+      "filename": "home-mixer/query_hydrators/under_the_hood_setting_query_hydrator.rs",
+      "status": "modified",
+      "additions": 31,
+      "deletions": 2,
+      "tracked": false
+    },
+    {
+      "filename": "home-mixer/selectors/top_k_score_selector.rs",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 0,
+      "tracked": false
+    },
+    {
+      "filename": "home-mixer/side_effects/phoenix_experiments_side_effect.rs",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 4,
+      "tracked": false
+    },
+    {
+      "filename": "home-mixer/side_effects/redis_post_candidate_cache_side_effect.rs",
+      "status": "modified",
+      "additions": 41,
+      "deletions": 12,
+      "tracked": false
+    },
+    {
+      "filename": "home-mixer/util/under_the_hood.rs",
+      "status": "modified",
+      "additions": 6,
+      "deletions": 0,
+      "tracked": false
+    },
+    {
+      "filename": "home-mixer/util/video_carousel.rs",
+      "status": "modified",
+      "additions": 11,
+      "deletions": 10,
+      "tracked": false
+    },
+    {
+      "filename": "phoenix/Cargo.lock",
+      "status": "modified",
+      "additions": 13,
+      "deletions": 0,
+      "tracked": false
+    },
+    {
+      "filename": "phoenix/Cargo.toml",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 0,
+      "tracked": false
+    },
+    {
+      "filename": "phoenix/crates/common/xai-recsys/build.rs",
+      "status": "modified",
+      "additions": 29,
+      "deletions": 0,
+      "tracked": false
+    },
+    {
+      "filename": "phoenix/crates/common/xai-recsys/Cargo.toml",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 0,
+      "tracked": false
+    },
+    {
+      "filename": "phoenix/crates/common/xai-recsys/src/model_config.rs",
+      "status": "modified",
+      "additions": 6,
+      "deletions": 0,
+      "tracked": false
+    },
+    {
+      "filename": "phoenix/crates/common/xai-recsys/src/reply.rs",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "tracked": true
+    },
+    {
+      "filename": "phoenix/crates/common/xai-recsys/src/util.rs",
+      "status": "modified",
+      "additions": 1008,
+      "deletions": 3,
+      "tracked": false
+    },
+    {
+      "filename": "phoenix/crates/serving/xai-recsys-engine/src/checkpoint_gateway_tests.rs",
+      "status": "modified",
+      "additions": 345,
+      "deletions": 0,
+      "tracked": false
+    },
+    {
+      "filename": "phoenix/crates/serving/xai-recsys-engine/src/checkpoint_gateway.rs",
+      "status": "modified",
+      "additions": 180,
+      "deletions": 13,
+      "tracked": false
+    },
+    {
+      "filename": "phoenix/crates/serving/xai-recsys-engine/src/checkpoint_policy.rs",
+      "status": "modified",
+      "additions": 102,
+      "deletions": 3,
+      "tracked": false
+    },
+    {
+      "filename": "phoenix/crates/serving/xai-recsys-proto/proto/recsys.proto",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 0,
+      "tracked": false
+    },
+    {
+      "filename": "phoenix/crates/serving/xai-recsys-proto/src/lib.rs",
+      "status": "modified",
+      "additions": 48,
+      "deletions": 0,
+      "tracked": false
+    },
+    {
+      "filename": "phoenix/crates/x-product/xai-user-debias/Cargo.toml",
+      "status": "added",
+      "additions": 17,
+      "deletions": 0,
+      "tracked": false
+    },
+    {
+      "filename": "phoenix/crates/x-product/xai-user-debias/src/arrow.rs",
+      "status": "added",
+      "additions": 226,
+      "deletions": 0,
+      "tracked": false
+    },
+    {
+      "filename": "phoenix/crates/x-product/xai-user-debias/src/error.rs",
+      "status": "added",
+      "additions": 38,
+      "deletions": 0,
+      "tracked": false
+    },
+    {
+      "filename": "phoenix/crates/x-product/xai-user-debias/src/features.rs",
+      "status": "added",
+      "additions": 666,
+      "deletions": 0,
+      "tracked": false
+    },
+    {
+      "filename": "phoenix/crates/x-product/xai-user-debias/src/lib.rs",
+      "status": "added",
+      "additions": 59,
+      "deletions": 0,
+      "tracked": false
+    },
+    {
+      "filename": "phoenix/crates/x-product/xai-user-debias/src/model.rs",
+      "status": "added",
+      "additions": 495,
+      "deletions": 0,
+      "tracked": false
+    },
+    {
+      "filename": "phoenix/python/common/xai-proto/proto/recsys.proto",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 0,
+      "tracked": false
+    },
+    {
+      "filename": "phoenix/xrex/configs/xrecsys.py",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 0,
+      "tracked": false
+    },
+    {
+      "filename": "phoenix/xrex/data/parquet_recsys.py",
+      "status": "modified",
+      "additions": 9,
+      "deletions": 0,
+      "tracked": false
+    },
+    {
+      "filename": "phoenix/xrex/data/recsys/feature_config.py",
+      "status": "modified",
+      "additions": 16,
+      "deletions": 0,
+      "tracked": false
+    },
+    {
+      "filename": "phoenix/xrex/data/recsys/recsys_batch.py",
+      "status": "modified",
+      "additions": 26,
+      "deletions": 1,
+      "tracked": false
+    },
+    {
+      "filename": "phoenix/xrex/data/recsys/sequence_packing.py",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 0,
+      "tracked": false
+    },
+    {
+      "filename": "phoenix/xrex/data/streaming/kafkaloader.py",
+      "status": "modified",
+      "additions": 8,
+      "deletions": 1,
+      "tracked": false
+    },
+    {
+      "filename": "phoenix/xrex/models/loss_recsys.py",
+      "status": "modified",
+      "additions": 128,
+      "deletions": 0,
+      "tracked": false
+    },
+    {
+      "filename": "phoenix/xrex/models/page_rl.py",
+      "status": "modified",
+      "additions": 193,
+      "deletions": 4,
+      "tracked": false
+    },
+    {
+      "filename": "phoenix/xrex/models/recsys_feature_prep.py",
+      "status": "modified",
+      "additions": 90,
+      "deletions": 4,
+      "tracked": false
+    },
+    {
+      "filename": "phoenix/xrex/models/recsys_model.py",
+      "status": "modified",
+      "additions": 307,
+      "deletions": 27,
+      "tracked": false
+    },
+    {
+      "filename": "phoenix/xrex/models/recsys_sid.py",
+      "status": "modified",
+      "additions": 58,
+      "deletions": 1,
+      "tracked": false
+    },
+    {
+      "filename": "phoenix/xrex/settings.py",
+      "status": "modified",
+      "additions": 0,
+      "deletions": 5,
+      "tracked": false
+    },
+    {
+      "filename": "phoenix/xrex/train/recsys_bundle_export.py",
+      "status": "modified",
+      "additions": 13,
+      "deletions": 0,
+      "tracked": false
+    },
+    {
+      "filename": "phoenix/xrex/train/trainer_recsys.py",
+      "status": "modified",
+      "additions": 53,
+      "deletions": 14,
+      "tracked": false
+    },
+    {
+      "filename": "scarecrow/legacy/XReviewIntakeRegistry.scala",
+      "status": "modified",
+      "additions": 21,
+      "deletions": 3,
+      "tracked": false
+    }
+  ],
+  "cards": [
+    {
+      "slug": "forty-eight-hours",
+      "file": "content/cards/01-forty-eight-hours.json",
+      "commitSha": "e005f95",
+      "needsReview": false,
+      "reasons": [],
+      "shifted": []
+    },
+    {
+      "slug": "stranger-doorman",
+      "file": "content/cards/02-stranger-doorman.json",
+      "commitSha": "e005f95",
+      "needsReview": false,
+      "reasons": [],
+      "shifted": []
+    },
+    {
+      "slug": "verified-reply-order",
+      "file": "content/cards/03-verified-reply-order.json",
+      "commitSha": "e005f95",
+      "needsReview": false,
+      "reasons": [],
+      "shifted": []
+    },
+    {
+      "slug": "like-is-a-nod",
+      "file": "content/cards/04-like-is-a-nod.json",
+      "commitSha": "e005f95",
+      "needsReview": false,
+      "reasons": [],
+      "shifted": []
+    },
+    {
+      "slug": "mutual-reply-boost",
+      "file": "content/cards/05-mutual-reply-boost.json",
+      "commitSha": "e005f95",
+      "needsReview": false,
+      "reasons": [],
+      "shifted": []
+    },
+    {
+      "slug": "copy-link-wins",
+      "file": "content/cards/06-copy-link-wins.json",
+      "commitSha": "e005f95",
+      "needsReview": false,
+      "reasons": [],
+      "shifted": []
+    },
+    {
+      "slug": "negative-weights",
+      "file": "content/cards/07-negative-weights.json",
+      "commitSha": "e005f95",
+      "needsReview": false,
+      "reasons": [],
+      "shifted": []
+    },
+    {
+      "slug": "how-to-read-weights",
+      "file": "content/cards/08-how-to-read-weights.json",
+      "commitSha": "e005f95",
+      "needsReview": false,
+      "reasons": [],
+      "shifted": []
+    },
+    {
+      "slug": "author-diversity",
+      "file": "content/cards/09-author-diversity.json",
+      "commitSha": "e005f95",
+      "needsReview": false,
+      "reasons": [],
+      "shifted": []
+    },
+    {
+      "slug": "offset-score",
+      "file": "content/cards/10-offset-score.json",
+      "commitSha": "e005f95",
+      "needsReview": false,
+      "reasons": [],
+      "shifted": []
+    }
+  ]
+}

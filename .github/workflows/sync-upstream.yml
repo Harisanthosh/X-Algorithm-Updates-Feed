@@ -1,0 +1,54 @@
+name: Sync upstream
+
+# Daily check of xai-org/x-algorithm. Opens a pull request when a card's cited
+# upstream lines changed, or when a tracked upstream file changed. Never auto-merges.
+# Needs no secrets: the built-in GITHUB_TOKEN is enough (public repo, read only).
+
+on:
+  schedule:
+    - cron: "17 6 * * *" # daily at 06:17 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: sync-upstream
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    name: Check upstream and open a PR
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Run the upstream sync
+        id: sync
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: node scripts/sync-from-upstream.mjs --pr-body "$RUNNER_TEMP/pr-body.md"
+
+      - name: Open or update the review pull request
+        if: steps.sync.outputs.changed == 'true'
+        uses: peter-evans/create-pull-request@v7
+        with:
+          token: ${{ github.token }}
+          branch: automated/sync-upstream
+          base: main
+          delete-branch: true
+          commit-message: "content: sync from xai-org/x-algorithm"
+          title: "Review upstream x-algorithm changes"
+          body-path: ${{ runner.temp }}/pr-body.md
+          add-paths: |
+            content/upstream.json
+            content/sync-report.json
+            content/cards/*.json

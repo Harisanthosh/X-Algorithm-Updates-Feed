@@ -66,6 +66,7 @@ async function main() {
     }
 
     if (c.verified && c.snippets.length === 0) errors.push(`${file}: verified card has no snippets`);
+    if (c.needsReview) warnings.push(`${file}: needs review, cited upstream lines changed since ${c.commitSha ?? "no pin"}`);
     if (!c.verified) warnings.push(`${file}: unverified, hidden from the feed (${c.todos?.length ?? 0} todo)`);
   }
 
