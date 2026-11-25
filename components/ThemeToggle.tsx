@@ -1,5 +1,7 @@
 "use client";
 
+import { MoonIcon, SunIcon } from "./icons";
+
 /**
  * Flips between light and dark and persists the choice in localStorage.
  * The first paint is set by the inline script in app/layout.tsx.
@@ -19,8 +21,9 @@ export function ThemeToggle() {
   };
 
   return (
-    <button type="button" className="btn btn-ghost" onClick={toggle} aria-label="Toggle light and dark theme">
-      Theme
+    <button type="button" className="icon-btn" onClick={toggle} aria-label="Toggle light and dark theme" title="Toggle theme">
+      <SunIcon size={18} className="icon-sun" />
+      <MoonIcon size={18} className="icon-moon" />
     </button>
   );
 }

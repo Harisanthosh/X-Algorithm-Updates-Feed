@@ -3,6 +3,7 @@
 import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import type { SlideData } from "@/lib/cards";
 import { Card } from "./Card";
+import { ChevronDownIcon, ChevronUpIcon } from "./icons";
 import { FilterBar } from "./FilterBar";
 import { Progress } from "./Progress";
 import { SpecialCard } from "./SpecialCard";
@@ -145,6 +146,8 @@ export function Feed({ slides, initialSlug = null, initialHash = null }: Props) 
     return () => window.removeEventListener("keydown", onKey);
   }, [current, visible.length]);
 
+  const progress = visible.length ? (current + 1) / visible.length : 0;
+
   return (
     <div className="app">
       <header className="chrome">
@@ -156,6 +159,9 @@ export function Feed({ slides, initialSlug = null, initialHash = null }: Props) 
           </div>
         </div>
         <FilterBar topics={topics} active={topic} onChange={onTopicChange} />
+        <div className="progress-track" aria-hidden="true">
+          <div className="progress-fill" style={{ transform: `scaleX(${progress})` }} />
+        </div>
       </header>
 
       <div
@@ -166,21 +172,21 @@ export function Feed({ slides, initialSlug = null, initialHash = null }: Props) 
         role="region"
         aria-label="Cards"
       >
-        {visible.map((s) =>
+        {visible.map((s, i) =>
           s.kind === "card" ? (
-            <Card key={s.slug} id={slideId(s)} slide={s} />
+            <Card key={s.slug} id={slideId(s)} slide={s} active={i === current} />
           ) : (
-            <SpecialCard key={s.slug} id={slideId(s)} slide={s} />
+            <SpecialCard key={s.slug} id={slideId(s)} slide={s} active={i === current} />
           ),
         )}
       </div>
 
-      <div className="edge-nav" aria-hidden="false">
-        <button type="button" className="btn btn-ghost" onClick={() => goTo(current - 1)} aria-label="Previous card">
-          Up
+      <div className="step-nav">
+        <button type="button" className="step-btn" onClick={() => goTo(current - 1)} aria-label="Previous card">
+          <ChevronUpIcon size={20} />
         </button>
-        <button type="button" className="btn btn-ghost" onClick={() => goTo(current + 1)} aria-label="Next card">
-          Down
+        <button type="button" className="step-btn" onClick={() => goTo(current + 1)} aria-label="Next card">
+          <ChevronDownIcon size={20} />
         </button>
       </div>
     </div>

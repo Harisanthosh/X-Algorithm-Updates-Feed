@@ -19,6 +19,8 @@ export async function highlightSnippet(snippet: Snippet): Promise<string> {
         line(node, line) {
           const n = snippet.startLine + line - 1;
           node.properties["data-n"] = String(n);
+          // Position in the snippet, used by CSS to stagger the line-by-line reveal.
+          node.properties.style = `--i:${line - 1}`;
           if (highlight.has(n)) this.addClassToHast(node, "hl");
         },
       },
