@@ -1,0 +1,24 @@
+{
+  "slug": "how-to-read-weights",
+  "title": "Group chat opens do not move ranking",
+  "dek": "Only actions on posts served in the Home Timeline count toward ranking.",
+  "publishedAt": "2026-11-25",
+  "topics": ["scoring"],
+  "sourceDay": 3,
+  "commitSha": "e005f95",
+  "whatChanged": "A code comment in xai-value-model says an action only counts for an account when it takes place on a post served in the Home Timeline. Opening a post directly, such as from a group chat link, has no ranking impact. The weights multiply predicted probabilities, so the code does not read raw counts.",
+  "meaningForCreators": "A link passed around a group chat helps the people in that chat, not the ranking. The work that moves reach is the post itself, as people see it in their feeds.",
+  "action": "Do this: judge a post by how many people saw it in their feed, not by how many people opened the link.",
+  "snippets": [
+    {
+      "path": "xai-value-model/scoring.rs",
+      "startLine": 54,
+      "endLine": 58,
+      "highlightLines": [55, 56],
+      "language": "rust",
+      "code": "// 2. For an account to count in the algorithms recommendation system,\n// it must take place on a post served in Home Timeline. Directly\n// navigating to a post (i.e., coordinating via groupchat) has no\n// ranking impact. And users cannot manufacture a post to show up in\n// their Timeline in any consistently reproducible way."
+    }
+  ],
+  "verified": true,
+  "order": 8
+}

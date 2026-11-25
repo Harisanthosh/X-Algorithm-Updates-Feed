@@ -1,0 +1,32 @@
+{
+  "slug": "negative-weights",
+  "title": "One annoyed stranger is expensive",
+  "dek": "Not interested, block, mute, and report all pull a post down in the defaults.",
+  "publishedAt": "2026-11-25",
+  "topics": ["scoring", "safety"],
+  "sourceDay": 3,
+  "commitSha": "e005f95",
+  "whatChanged": "In the defaults, not interested is -53.07, block is -31.2, mute is -58.8, and report is -234.0. Report has the largest magnitude in this list. The code comments say these weights multiply predicted probabilities, so they are not counts, and one report is not a fixed number of likes. These are defaults in the public repo, and live settings can differ.",
+  "meaningForCreators": "Negative actions are rare, so the code weights each one hard. A post that makes strangers reach for not interested or mute can be shown less to people like them. Write the hook to keep the reader, not only to catch attention.",
+  "action": "Do this: cut any hook that would make a stranger want to mute you, and keep the first line honest about what the post says.",
+  "snippets": [
+    {
+      "path": "home-mixer/params/param.rs",
+      "startLine": 571,
+      "endLine": 576,
+      "highlightLines": [575],
+      "language": "rust",
+      "code": "param!(\n    NotInterestedWeight,\n    f64,\n    \"rust_home_mixer_not_interested_weight\",\n    -53.07\n);"
+    },
+    {
+      "path": "home-mixer/params/param.rs",
+      "startLine": 577,
+      "endLine": 589,
+      "highlightLines": [587, 589],
+      "language": "rust",
+      "code": "param!(\n    BlockAuthorWeight,\n    f64,\n    \"rust_home_mixer_block_author_weight\",\n    -31.2\n);\nparam!(\n    MuteAuthorWeight,\n    f64,\n    \"rust_home_mixer_mute_author_weight\",\n    -58.8\n);\nparam!(ReportWeight, f64, \"rust_home_mixer_report_weight\", -234.0);"
+    }
+  ],
+  "verified": true,
+  "order": 7
+}

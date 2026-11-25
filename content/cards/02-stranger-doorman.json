@@ -1,0 +1,32 @@
+{
+  "slug": "stranger-doorman",
+  "title": "Strangers get a stricter doorman than your followers",
+  "dek": "Account labels can drop a post from feeds of people who do not follow you.",
+  "publishedAt": "2026-11-25",
+  "topics": ["filters", "safety"],
+  "sourceDay": 4,
+  "commitSha": "e005f95",
+  "whatChanged": "For out-of-network posts, the visibility rules drop a post when its author carries certain account labels. The list covers spam, compromised, read-only, impersonation, abusive, and do-not-amplify labels. Adult content flags on the author's avatar or banner sit in the home recommendations rule set too. These are defaults in the public repo, and live settings can differ.",
+  "meaningForCreators": "Strangers are where a small account grows, and this is the strictest check they face. Profile media and account labels are part of that check, so a clean profile matters more for new readers than for people who already follow you.",
+  "action": "Do this: keep your profile photo, banner, and account standing clean, since these are part of the check on posts shown to strangers.",
+  "snippets": [
+    {
+      "path": "visibility-filtering/rules/levels.rs",
+      "startLine": 101,
+      "endLine": 108,
+      "highlightLines": [101],
+      "language": "rust",
+      "code": "const OON_AUTHOR_LABEL_DROPS: &[&UserRule] = &[\n    &SPAM_HIGH_RECALL_USER_LABEL_DROP_UNSPECIFIED,\n    &COMPROMISED_USER_LABEL_DROP_UNSPECIFIED,\n    &READ_ONLY_USER_LABEL_DROP_UNSPECIFIED,\n    &IMPERSONATION_HIGH_PRECISION_USER_LABEL_DROP_UNSPECIFIED,\n    &ABUSIVE_HIGH_RECALL_USER_LABEL_DROP_UNSPECIFIED,\n    &DO_NOT_AMPLIFY_USER_LABEL_DROP_UNSPECIFIED,\n];"
+    },
+    {
+      "path": "visibility-filtering/rules/levels.rs",
+      "startLine": 350,
+      "endLine": 351,
+      "highlightLines": [350, 351],
+      "language": "rust",
+      "code": "            &NSFW_AVATAR_IMAGE_USER_LABEL_DROP_UNSPECIFIED,\n            &NSFW_BANNER_IMAGE_USER_LABEL_DROP_UNSPECIFIED,"
+    }
+  ],
+  "verified": true,
+  "order": 2
+}

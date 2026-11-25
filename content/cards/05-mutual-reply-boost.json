@@ -1,0 +1,24 @@
+{
+  "slug": "mutual-reply-boost",
+  "title": "Conversations with mutuals get an extra push",
+  "dek": "A reply between two accounts that follow each other gets a boost in the defaults.",
+  "publishedAt": "2026-11-25",
+  "topics": ["scoring", "replies"],
+  "sourceDay": 3,
+  "commitSha": "e005f95",
+  "whatChanged": "In the defaults, a reply that comes from a bidirectional follow (you and the reader follow each other) gets an extra boost of 15.0 on top of the base reply weight of 5.0. These are defaults in the public repo, and live settings can differ.",
+  "meaningForCreators": "Replies between mutuals carry a bigger boost in the defaults than replies from accounts that do not follow back, because the boost is named for bidirectional follows. Keeping a conversation going with people who follow you back is a direct move this code rewards.",
+  "action": "Do this: answer the real replies on your posts for the first hour, starting with people who already follow you back.",
+  "snippets": [
+    {
+      "path": "home-mixer/params/param.rs",
+      "startLine": 473,
+      "endLine": 478,
+      "highlightLines": [474, 476, 477],
+      "language": "rust",
+      "code": "param!(\n    BidirectionalFollowReplyWeightBoost,\n    f64,\n    \"rust_home_mixer_bidirectional_follow_reply_weight_boost\",\n    15.0\n);"
+    }
+  ],
+  "verified": true,
+  "order": 5
+}

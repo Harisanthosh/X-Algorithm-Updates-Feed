@@ -1,0 +1,16 @@
+{
+  "kind": "about",
+  "slug": "about",
+  "title": "About this scroll",
+  "body": [
+    "Made by @harisanthosh9. It grew out of the Day 1 to 6 series on the X For You code.",
+    "Each card cites a file and line range in xai-org/x-algorithm. Quoted code is short, and the attribution is in NOTICE (Apache License 2.0).",
+    "Built with Grok Bot. The plan is for a Grok Bot routine to watch the repo and draft new cards, with a human review before anything is published. That routine is not connected in this version.",
+    "This site does not post, like, follow, or DM on anyone's behalf, and it is not endorsed by X or xAI."
+  ],
+  "links": [
+    { "label": "xai-org/x-algorithm on GitHub", "href": "https://github.com/xai-org/x-algorithm" },
+    { "label": "Source code for this site", "href": "https://github.com/Harisanthosh/X-Algorithm-Updates-Feed" }
+  ],
+  "order": 99
+}

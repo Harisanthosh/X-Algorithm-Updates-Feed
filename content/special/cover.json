@@ -1,0 +1,11 @@
+{
+  "kind": "cover",
+  "slug": "cover",
+  "title": "X Algorithm Scroll",
+  "body": [
+    "X open sourced its For You code. This scroll is each useful finding, in plain English, with the real lines next to it.",
+    "Every line number points at xai-org/x-algorithm at commit e005f95. These are the defaults in that repo, and the live settings X runs can differ.",
+    "Swipe, scroll, or press J and K to move between cards."
+  ],
+  "order": 1
+}

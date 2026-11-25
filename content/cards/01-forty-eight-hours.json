@@ -1,0 +1,24 @@
+{
+  "slug": "forty-eight-hours",
+  "title": "Every post gets a two day window",
+  "dek": "The home mixer sets a maximum post age of 48 hours in its default config.",
+  "publishedAt": "2026-11-25",
+  "topics": ["pipeline", "filters"],
+  "sourceDay": 1,
+  "commitSha": "e005f95",
+  "whatChanged": "The home mixer config sets a maximum post age of 48 hours, written as 48 * 60 * 60 seconds. This is a default in the public repo, and live settings can differ.",
+  "meaningForCreators": "A post has a limited shelf life in the feed, so an idea that lands flat is not a permanent verdict. Rewriting it and posting again later in the week is a fresh try. The number is a default, so use it as a planning guide rather than a promise.",
+  "action": "Do this: when a post lands flat, rewrite the idea and post again later in the week instead of letting it sit.",
+  "snippets": [
+    {
+      "path": "home-mixer/params/config.rs",
+      "startLine": 41,
+      "endLine": 41,
+      "highlightLines": [41],
+      "language": "rust",
+      "code": "pub const MAX_POST_AGE: u64 = 48 * 60 * 60;"
+    }
+  ],
+  "verified": true,
+  "order": 1
+}

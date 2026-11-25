@@ -1,0 +1,32 @@
+{
+  "slug": "like-is-a-nod",
+  "title": "A like is a polite little nod",
+  "dek": "Likes count, but the defaults give them one of the smaller positive weights.",
+  "publishedAt": "2026-11-25",
+  "topics": ["scoring"],
+  "sourceDay": 3,
+  "commitSha": "e005f95",
+  "whatChanged": "In the defaults, a favorite (like) has a weight of 0.708 and a reply has 5.0. A share sent by DM has 5.0. Each weight multiplies the predicted chance of that action, not a raw count of likes. These are defaults in the public repo, and live settings can differ.",
+  "meaningForCreators": "Likes still count, but they carry a small weight next to replies and DM shares. Aim for posts that start conversations, not only posts that collect quiet taps.",
+  "action": "Do this: write posts that invite a real reply, and answer the first replies yourself.",
+  "snippets": [
+    {
+      "path": "home-mixer/params/param.rs",
+      "startLine": 466,
+      "endLine": 472,
+      "highlightLines": [470, 472],
+      "language": "rust",
+      "code": "param!(\n    FavoriteWeight,\n    f64,\n    \"rust_home_mixer_favorite_weight\",\n    0.708\n);\nparam!(ReplyWeight, f64, \"rust_home_mixer_reply_weight\", 5.0);"
+    },
+    {
+      "path": "home-mixer/params/param.rs",
+      "startLine": 507,
+      "endLine": 513,
+      "highlightLines": [512],
+      "language": "rust",
+      "code": "param!(ShareWeight, f64, \"rust_home_mixer_share_weight\", 2.118);\nparam!(\n    ShareViaDmWeight,\n    f64,\n    \"rust_home_mixer_share_via_dm_weight\",\n    5.0\n);"
+    }
+  ],
+  "verified": true,
+  "order": 4
+}

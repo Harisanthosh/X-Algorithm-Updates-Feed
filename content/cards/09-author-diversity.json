@@ -1,0 +1,45 @@
+{
+  "slug": "author-diversity",
+  "title": "Several posts from one author compete with each other",
+  "dek": "Author diversity is on in the defaults, with a decay and a floor.",
+  "publishedAt": "2026-11-25",
+  "topics": ["scoring", "filters"],
+  "sourceDay": 4,
+  "commitSha": "e005f95",
+  "whatChanged": "Author diversity is on by default, with a decay of 0.5 and a floor of 0.25. The multiplier in the scoring code is (1 - floor) times decay raised to an exponent, plus the floor, so a score shrinks toward the floor but never drops below it. These are defaults in the public repo, and live settings can differ.",
+  "meaningForCreators": "Posts from one author can compete with each other in the same feed load. Spacing out a burst of posts, and letting the best one lead, is the safer plan in these defaults.",
+  "action": "Do this: space out a burst of posts, and let the strongest one go first.",
+  "snippets": [
+    {
+      "path": "vm-ranker/params.rs",
+      "startLine": 205,
+      "endLine": 210,
+      "highlightLines": [209],
+      "language": "rust",
+      "code": "param!(\n    AuthorDiversityDecay,\n    f64,\n    \"rust_home_mixer_author_diversity_decay\",\n    0.5\n);"
+    },
+    {
+      "path": "vm-ranker/params.rs",
+      "startLine": 211,
+      "endLine": 216,
+      "highlightLines": [215],
+      "language": "rust",
+      "code": "param!(\n    AuthorDiversityFloor,\n    f64,\n    \"rust_home_mixer_author_diversity_floor\",\n    0.25\n);"
+    },
+    {
+      "path": "xai-value-model/scoring.rs",
+      "startLine": 304,
+      "endLine": 306,
+      "highlightLines": [305],
+      "language": "rust",
+      "code": "pub fn diversity_multiplier(decay_factor: f64, floor: f64, exponent: f64) -> f64 {\n    (1.0 - floor) * decay_factor.powf(exponent) + floor\n}"
+    }
+  ],
+  "verified": false,
+  "todos": [
+    "Confirm which exponent is passed to diversity_multiplier for each post position before adding per-position percentages.",
+    "Confirm the EnableAuthorDiversity default (param.rs line 203 in vm-ranker/params.rs) before the on-by-default claim ships.",
+    "Hidden from the feed until these checks are done."
+  ],
+  "order": 9
+}

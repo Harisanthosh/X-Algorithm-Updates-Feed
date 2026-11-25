@@ -1,0 +1,24 @@
+{
+  "slug": "copy-link-wins",
+  "title": "The copy link button quietly wins",
+  "dek": "In the defaults, sharing by copying the link carries a bigger weight than sharing by DM.",
+  "publishedAt": "2026-11-25",
+  "topics": ["scoring"],
+  "sourceDay": 3,
+  "commitSha": "e005f95",
+  "whatChanged": "In the defaults, a share through copy link has a weight of 20.0. A share sent by DM is 5.0, and a general share is 2.118. Copy link has the largest weight of those three share types in this list. These are defaults in the public repo, and live settings can differ.",
+  "meaningForCreators": "Sharing by copying a link is the strongest share signal in these defaults. A post a reader would want to pass to a friend on purpose is worth writing for. Make the first line say what the post gives the reader.",
+  "action": "Do this: write one post a week that someone would want to send to a friend, and make the first line say what it is.",
+  "snippets": [
+    {
+      "path": "home-mixer/params/param.rs",
+      "startLine": 514,
+      "endLine": 519,
+      "highlightLines": [518],
+      "language": "rust",
+      "code": "param!(\n    ShareViaCopyLinkWeight,\n    f64,\n    \"rust_home_mixer_share_via_copy_link_weight\",\n    20.0\n);"
+    }
+  ],
+  "verified": true,
+  "order": 6
+}

@@ -1,0 +1,32 @@
+{
+  "slug": "offset-score",
+  "title": "Net negative posts sink to the bottom",
+  "dek": "For each reader, a post the model expects them to dislike ranks under every positive post.",
+  "publishedAt": "2026-11-25",
+  "topics": ["scoring"],
+  "sourceDay": 5,
+  "commitSha": "e005f95",
+  "whatChanged": "The offset_score function adds 0.001 to a positive combined score. A negative combined score is scaled into a small range using the same NEGATIVE_SCORES_OFFSET constant, which is 0.001 in the value model weights. So for that reader, a net negative post ranks under every post that came out positive. These are defaults in the public repo, and live settings can differ.",
+  "meaningForCreators": "Once a post turns net negative for a reader, raw like counts stop helping it with that reader. A post a reader is predicted to dislike sits at the bottom for them, however many likes it gets elsewhere.",
+  "action": "Do this: check your recent posts for anything that might make readers hit mute, block, or not interested, and fix the ones that do.",
+  "snippets": [
+    {
+      "path": "xai-value-model/scoring.rs",
+      "startLine": 282,
+      "endLine": 291,
+      "highlightLines": [287, 289],
+      "language": "rust",
+      "code": "pub fn offset_score(combined_score: f64, w: &ValueModelWeights) -> f64 {\n    let total_sum = w.offset_total_sum();\n    if total_sum == 0.0 {\n        combined_score.max(0.0)\n    } else if combined_score < 0.0 {\n        (combined_score + w.offset_negative_sum()) / total_sum * NEGATIVE_SCORES_OFFSET\n    } else {\n        combined_score + NEGATIVE_SCORES_OFFSET\n    }\n}"
+    },
+    {
+      "path": "xai-value-model/weights.rs",
+      "startLine": 4,
+      "endLine": 4,
+      "highlightLines": [4],
+      "language": "rust",
+      "code": "pub const NEGATIVE_SCORES_OFFSET: f64 = 0.001;"
+    }
+  ],
+  "verified": true,
+  "order": 10
+}

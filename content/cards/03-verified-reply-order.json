@@ -1,0 +1,24 @@
+{
+  "slug": "verified-reply-order",
+  "title": "Verified is one of the reply placement inputs",
+  "dek": "The reply placement code lists author verification next to other features.",
+  "publishedAt": "2026-11-25",
+  "topics": ["replies", "scoring"],
+  "sourceDay": 2,
+  "commitSha": "e005f95",
+  "whatChanged": "The reply placement file lists the features it uses to place replies. Author verification is one of them, next to the grox score, whether the root author liked the reply, and whether the focal author replied. This file lists the features; the lines shown do not set their weights.",
+  "meaningForCreators": "Verified status is one input to reply placement, and this file does not show it as a For You reach boost. A reply that the original poster liked is another input, so replies the author is likely to like are the ones worth writing.",
+  "action": "Do this: write replies the original poster is likely to like, since that is one of the placement inputs in this code.",
+  "snippets": [
+    {
+      "path": "phoenix/crates/common/xai-recsys/src/reply.rs",
+      "startLine": 62,
+      "endLine": 69,
+      "highlightLines": [65],
+      "language": "rust",
+      "code": "const PLACEMENT_FEATURES: [&str; 6] = [\n    \"section\",\n    \"grox_score\",\n    \"author_verified\",\n    \"fav_by_root_author\",\n    \"focal_author_reply\",\n    \"self_reply\",\n];"
+    }
+  ],
+  "verified": true,
+  "order": 3
+}
