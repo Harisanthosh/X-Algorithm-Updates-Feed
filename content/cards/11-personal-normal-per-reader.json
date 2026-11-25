@@ -1,0 +1,53 @@
+{
+  "slug": "personal-normal-per-reader",
+  "title": "X now compares each reader with their own normal",
+  "dek": "A new crate adjusts a predicted like or dwell for how much that reader usually reacts.",
+  "publishedAt": "2026-11-25",
+  "topics": [
+    "scoring",
+    "discovery"
+  ],
+  "sourceDay": 7,
+  "commitSha": "52d4598",
+  "commitDate": "2026-11-25",
+  "whatChanged": "Commit 52d4598 adds the source of a crate called xai-user-debias. It summarises a reader's recent actions over the last 1, 6, 24 and 168 hours. debiased_probability then moves a predicted probability by the gap between that reader and the global average, with the gap capped by a clip value. In the public config the switch is off by default, and one test arm turns it on for country DE at alpha 1.0. Live settings can differ.",
+  "meaningForCreators": "A like from someone who likes almost everything may carry less weight in the guess about that reader, and a reaction from someone who rarely reacts may say more. That is a reading of the math, not something X has stated, and it only applies where the switch is on.",
+  "action": "Do this: look at who reacts to your posts, and write more of what makes rare reactors stop.",
+  "snippets": [
+    {
+      "path": "phoenix/crates/x-product/xai-user-debias/src/lib.rs",
+      "startLine": 17,
+      "endLine": 21,
+      "highlightLines": [
+        18,
+        19
+      ],
+      "language": "rust",
+      "code": "pub fn debiased_probability(p: f64, user_logit: f32, global_logit: f32, clip: f64) -> f64 {\n    let delta = (user_logit as f64 - global_logit as f64).clamp(-clip, clip);\n    let z = (p / (1.0 - p)).ln() - delta;\n    1.0 / (1.0 + (-z).exp())\n}"
+    },
+    {
+      "path": "phoenix/crates/x-product/xai-user-debias/src/features.rs",
+      "startLine": 11,
+      "endLine": 12,
+      "highlightLines": [
+        12
+      ],
+      "language": "rust",
+      "code": "const EWMA_HALFLIFE_HOURS: [f32; 2] = [24.0, 168.0];\nconst WINDOWS_H: [f32; 4] = [1.0, 6.0, 24.0, 168.0];"
+    },
+    {
+      "path": "vm-ranker/scoring/mod.rs",
+      "startLine": 233,
+      "endLine": 247,
+      "highlightLines": [
+        235,
+        244,
+        246
+      ],
+      "language": "other",
+      "code": "    rust_home_mixer_vm_ranker_user_debias_enabled:\n      type: boolean\n      default: false\n    rust_home_mixer_vm_ranker_user_debias_alpha:\n      type: double\n      default: 0.0\n    rust_home_mixer_vm_ranker_user_debias_clip_logit:\n      type: double\n      default: 2.0\n  rules:\n    - description: \"debias arm\"\n      query: \"[country eq DE]\"\n      values:\n        rust_home_mixer_vm_ranker_user_debias_enabled: true\n        rust_home_mixer_vm_ranker_user_debias_alpha: 1.0"
+    }
+  ],
+  "verified": true,
+  "order": 11
+}
