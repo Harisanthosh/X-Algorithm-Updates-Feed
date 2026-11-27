@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-11-25T14:49:01.590Z",
+  "checkedAt": "2026-11-26T16:55:26.125Z",
   "status": "tracked-changes",
   "changed": true,
   "upstream": {
@@ -9,6 +9,12 @@
     "latestCommitDate": "2026-11-25T06:24:59Z"
   },
   "pins": [
+    {
+      "commitSha": "52d4598",
+      "resolvedSha": "52d45989090e63992ba04e4f6cfccd73bf8cc05c",
+      "changedFiles": 0,
+      "truncated": false
+    },
     {
       "commitSha": "e005f95",
       "resolvedSha": "e005f9528e504596f2c024a274d5fb533ce6488a",
@@ -29,6 +35,20 @@
       "status": "modified",
       "additions": 1,
       "deletions": 1,
+      "tracked": true
+    },
+    {
+      "filename": "phoenix/crates/x-product/xai-user-debias/src/features.rs",
+      "status": "added",
+      "additions": 666,
+      "deletions": 0,
+      "tracked": true
+    },
+    {
+      "filename": "phoenix/crates/x-product/xai-user-debias/src/lib.rs",
+      "status": "added",
+      "additions": 59,
+      "deletions": 0,
       "tracked": true
     }
   ],
@@ -255,14 +275,14 @@
       "status": "added",
       "additions": 666,
       "deletions": 0,
-      "tracked": false
+      "tracked": true
     },
     {
       "filename": "phoenix/crates/x-product/xai-user-debias/src/lib.rs",
       "status": "added",
       "additions": 59,
       "deletions": 0,
-      "tracked": false
+      "tracked": true
     },
     {
       "filename": "phoenix/crates/x-product/xai-user-debias/src/model.rs",
@@ -461,6 +481,14 @@
       "slug": "offset-score",
       "file": "content/cards/10-offset-score.json",
       "commitSha": "e005f95",
+      "needsReview": false,
+      "reasons": [],
+      "shifted": []
+    },
+    {
+      "slug": "personal-normal-per-reader",
+      "file": "content/cards/11-personal-normal-per-reader.json",
+      "commitSha": "52d4598",
       "needsReview": false,
       "reasons": [],
       "shifted": []
